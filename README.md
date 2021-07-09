@@ -1,3 +1,4 @@
+Hello
 <!-- PROJECT SHIELDS -->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -61,7 +62,7 @@ See the [open issues](https://github.com/Walk-Safe/walk-safe-backend) for a list
 <!-- SYSTEM DESIGN -->
 
 ### System Design
-###### Basic Web Architecture 
+###### Basic Web Architecture
 ![Architecture](to make web architecture here)
 <!-- CONTRIBUTING -->
 
@@ -73,7 +74,7 @@ Contributions are what make the open source community such an amazing place to b
 ###### Initial Setup
 1. Fork the Project
 2. Set up the rails database `rails db:{create,migrate}
-3. Proper initial setup to be finalized 
+3. Proper initial setup to be finalized
 ###### Making a Contribution
 1. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 2. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
