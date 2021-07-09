@@ -10,3 +10,11 @@ before_install:
 script:
 - bundle exec rails db:{create,migrate} RAILS_ENV=test
 - bundle exec rspec
+deploy:
+  provider: heroku
+  app: walk-safe-backend
+  run: rails db:migrate
+  on:
+    repo: Walk-Safe/walk-safe-backend
+    branch: main
+  skip_cleanup: 'true'
