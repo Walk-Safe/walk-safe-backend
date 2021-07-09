@@ -9,7 +9,7 @@
   <a href="https://github.com/Walk-Safe/walk-safe-backend">
     <img src="">
   </a>
-  <h3 align="center">Couplistic</h3>
+  <h3 align="center">Walk Safe</h3>
   <p align="center">
     Get home safe!
     <br />
