@@ -11,7 +11,7 @@
   </a>
   <h3 align="center">Couplistic</h3>
   <p align="center">
-    Couples that Couplistic together, stay together!
+    Get home safe!
     <br />
     <br />
     <a href="https://github.com/Walk-Safe/walk-safe-backend">Report Bug</a>
