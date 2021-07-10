@@ -9,7 +9,7 @@
 5.times do 
   user = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, username: Faker::Lorem.word)
   5.times do
-    user.contacts.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, Faker::PhoneNumber.cell_phone_in_e164)
+    user.contacts.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: Faker::PhoneNumber.cell_phone_in_e164)
   end 
   5.times do 
     user.trips.create(start_point: Faker::Address.full_address, end_point: Faker::Address.full_address, travel_mode: 0, start_lat: Faker::Address.latitude, start_lon: Faker::Address.longitude, end_lat: Faker::Address.latitude, end_lon: Faker::Address.longitude, eta: 500)
