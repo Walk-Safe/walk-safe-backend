@@ -45,6 +45,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'orderly'
   gem 'shoulda-matchers'
+  gem 'graphiql-rails'
 end
 
 group :development do
