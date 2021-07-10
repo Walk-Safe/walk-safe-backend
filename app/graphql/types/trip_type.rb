@@ -9,6 +9,8 @@ module Types
     field :end_lat, String, null: true
     field :end_lon, String, null: true
     field :eta, String, null: true
+    field :user_id, Integer, null: false
+    field :user, Types::UserType, null: true
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
   end
