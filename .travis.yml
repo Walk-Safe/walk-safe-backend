@@ -1,21 +1,23 @@
 language: ruby
 rbenv:
 - 2.5.3
-addons:
-  postgresql: 9.6
+cache:
+  - bundler
+services:
+  - postgresql
 before_install:
   - gem install bundler
-  # - nvm install node
+  - nvm install node
   - bundle
 script:
 - bundle exec rails db:{create,migrate} RAILS_ENV=test
 - bundle exec rspec
-# deploy:
-#   provider: heroku
-#   api_key: ENV["heroku_key"]
-#   app: walk-safe-backend
-#   run: rails db:migrate
-#   on:
-#     repo: Walk-Safe/walk-safe-backend
-#     branch: main
-#   skip_cleanup: 'true'
+deploy:
+  provider: heroku
+  api_key: ENV["heroku_key"]
+  app: walk-safe-backend
+  run: rails db:migrate
+  on:
+    repo: Walk-Safe/walk-safe-backend
+    branch: main
+  skip_cleanup: 'true'
