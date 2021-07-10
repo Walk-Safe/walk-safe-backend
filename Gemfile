@@ -45,6 +45,8 @@ group :development, :test do
   gem 'simplecov'
   gem 'orderly'
   gem 'shoulda-matchers'
+  gem 'graphiql-rails'
+  gem 'faker'
 end
 
 group :development do
@@ -55,7 +57,6 @@ group :test do
   gem 'webmock'
   gem 'vcr'
   gem 'factory_bot_rails'
-  gem 'faker'
 end
 
 
