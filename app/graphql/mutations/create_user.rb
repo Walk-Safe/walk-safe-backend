@@ -8,13 +8,13 @@ class Mutations::CreateUser < Mutations::BaseMutation
 
   def resolve(first_name:, last_name:, username:)
     user = User.new(first_name: first_name, last_name: last_name, username: username)
-  
+
     if user.save
       {
-        user: user, 
+        user: user,
         errors: []
       }
-    else 
+    else
       {
         user: nil,
         errors: user.errors.full_messages

@@ -6,7 +6,7 @@ module Types
     def all_users
       User.all
     end
-    
+
     field :one_user, [Types::UserType], null: false do
       argument :id, ID, required: true
     end
