@@ -8,7 +8,4 @@ class Trip < ApplicationRecord
   validates :end_lat, presence: false
   validates :end_lon, presence: false
   validates :eta, presence: false
-
-  enum status: [:walking, :bicycling, :driving]
-  
 end

@@ -1,0 +1,5 @@
+class ChangeTravelModeToBeAString < ActiveRecord::Migration[5.2]
+  def change
+    change_column :trips, :travel_mode, :string
+  end
+end

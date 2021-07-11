@@ -1,7 +1,7 @@
 class Mutations::CreateTrip < Mutations::BaseMutation
   argument :start_point, String, required: true
   argument :end_point, String, required: true
-  argument :travel_mode, Integer, required: true
+  argument :travel_mode, String, required: true
   argument :start_lat, String, required: false
   argument :start_lon, String, required: false
   argument :end_lat, String, required: false
