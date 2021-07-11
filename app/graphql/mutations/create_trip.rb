@@ -13,26 +13,7 @@ class Mutations::CreateTrip < Mutations::BaseMutation
   field :errors, [String], null: false
 
   def resolve(start_point:, end_point:, travel_mode:, start_lat:, start_lon:, end_lat:, end_lon:, eta:, user_id:)
-    # require 'pry'; binding.pry
-
-    # start_point = '4735 Orchard Pkwy Westminster CO'
-    # end_point   = '11815 Ridge Pkwy Broomfield CO'
-    travel_mode = 'walking'
-    
-    conn = Faraday.new('https://maps.googleapis.com/') do |f|
-      f.params['key'] = ENV['google_api_key']
-    end
-
-    response = conn.get('maps/api/distancematrix/json') do |f|
-      f.params['units']        = 'imperial'
-      f.params['origins']      = start_point
-      f.params['destinations'] = end_point
-      f.params['mode']         = travel_mode
-    end
-
-    data = JSON.parse(response.body, symbolize_names: true)
-    # eta in seconds
-    eta = data[:rows][0][:elements][0][:duration][:value]
+    eta = EtaService.get_eta(start_point, end_point, travel_mode)
 
     trip = User.find(user_id).trips.new(
                 start_point: start_point,
