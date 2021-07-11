@@ -37,16 +37,17 @@ gem 'graphql'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'pry'
-  gem 'travis'
-  gem 'rspec-rails'
   gem 'capybara'
-  gem 'launchy'
-  gem 'simplecov'
-  gem 'orderly'
-  gem 'shoulda-matchers'
-  gem 'graphiql-rails'
+  gem 'factory_bot_rails'
   gem 'faker'
+  gem 'graphiql-rails'
+  gem 'launchy'
+  gem 'orderly'
+  gem 'pry'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'simplecov'
+  gem 'travis'
 end
 
 group :development do
@@ -56,7 +57,6 @@ end
 group :test do
   gem 'webmock'
   gem 'vcr'
-  gem 'factory_bot_rails'
 end
 
 
