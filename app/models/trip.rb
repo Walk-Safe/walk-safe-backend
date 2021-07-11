@@ -9,6 +9,6 @@ class Trip < ApplicationRecord
   validates :end_lon, presence: true
   validates :eta, presence: true
 
-  enum status: [:walking, :bicycling, :driving]
-  
+  enum status: %i[walking bicycling driving]
+ 
 end
