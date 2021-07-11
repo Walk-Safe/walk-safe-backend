@@ -12,31 +12,30 @@ module Mutations
         end 
         it 'creates a contact' do
           expect(Contact.count).to eq(0)
-          post '/graphql', params: { query: query(user_id: @user.id) }
+          post '/graphql', params: { query: query }
           expect(Contact.count).to eq(1)
         end
         
         it 'returns a contact' do
-          post '/graphql', params: { query: query(user_id: @user.id) }
+          post '/graphql', params: { query: query }
           json = JSON.parse(response.body)
-          data = json['data']['createContact']
-          require 'pry'; binding.pry
-          expect(data[contact][id]).to be(present)
-          expect(data[contact][first_name]).to eq('Samara')
-          expect(data[contact][last_name]).to eq('Rosenberg')
-          expect(data[contact][phone_number]).to eq('+13038765432')
+          data = json['data']
+          expect(data['contact']['id']).to be(present)
+          expect(data['contact']['firstName']).to eq('Samara')
+          expect(data['contact']['lastName']).to eq('Rosenberg')
+          expect(data['contact']['phoneNumber']).to eq('+13038765432')
         end
       end
 
-      def query(user_id:)
+      def query
         <<~GQL
         mutation {
-          contact: createContact(
+          createContact(
           input: {
             firstName: "Samara"
             lastName: "Rosenberg"
             phoneNumber: "+13038765432"
-            userId: #{user_id}
+            userId: #{@user.id}
           }
           ) {
             id
