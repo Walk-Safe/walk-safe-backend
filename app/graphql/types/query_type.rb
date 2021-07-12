@@ -7,7 +7,7 @@ module Types
       User.all
     end
     
-    field :one_user, [Types::UserType], null: false do
+    field :one_user, Types::UserType, null: false do
       argument :id, ID, required: true
     end
 
