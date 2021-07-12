@@ -10,13 +10,13 @@ before_install:
 script:
 - bundle exec rails db:{create,migrate} RAILS_ENV=test
 - bundle exec rspec
-deploy:
-  provider: heroku
-  api_key: ENV["heroku_api_key"]
-  # api_key: ENV["secure_travis_key"]
-  app: walk-safe-backend
-  run: rails db:migrate
-  on:
-    repo: Walk-Safe/walk-safe-backend
-    branch: main
-  skip_cleanup: 'true'
+# deploy:
+#   provider: heroku
+#   api_key: ENV["heroku_api_key"]
+#   # api_key: ENV["secure_travis_key"]
+#   app: walk-safe-backend
+#   run: rails db:migrate
+#   on:
+#     repo: Walk-Safe/walk-safe-backend
+#     branch: main
+#   skip_cleanup: 'true'
