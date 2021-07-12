@@ -12,7 +12,8 @@ script:
 - bundle exec rspec
 deploy:
   provider: heroku
-  api_key: ENV["secure_travis_key"]
+  api_key: ENV["heroku_api_key"]
+  # api_key: ENV["secure_travis_key"]
   app: walk-safe-backend
   run: rails db:migrate
   on:
