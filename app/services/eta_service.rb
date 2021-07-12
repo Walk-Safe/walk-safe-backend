@@ -8,7 +8,8 @@ class EtaService
         f.params['mode']         = travel_mode
       end
 
-      parse_json(response)[:rows][0][:elements][0][:duration][:value]
+      sec = parse_json(response)[:rows][0][:elements][0][:duration][:value]
+      min = (sec.to_f / 60).round(0)
     end
 
     private
