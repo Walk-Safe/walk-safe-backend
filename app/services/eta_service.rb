@@ -7,11 +7,11 @@ class EtaService
         f.params['destinations'] = end_point
         f.params['mode']         = travel_mode
       end
-
+      
       seconds = parse_json(response)[:rows][0][:elements][0][:duration][:value]
       minutes = (seconds.to_f / 60).round(0)
       minutes_text = parse_json(response)[:rows][0][:elements][0][:duration][:text]
-      { eta: minutes, eta_string: minutes_text }
+      return { eta: minutes, eta_string: minutes_text }
     end
 
     private
