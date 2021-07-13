@@ -4,7 +4,7 @@ module Types
     field :start_point, String, null: true
     field :end_point, String, null: true
     field :travel_mode, String, null: true
-    field :eta, String, null: true
+    field :eta, Integer, null: true
     field :eta_string, String, null: true
     field :user_id, Integer, null: false
     field :user, Types::UserType, null: true
