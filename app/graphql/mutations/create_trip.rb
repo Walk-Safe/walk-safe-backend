@@ -16,7 +16,7 @@ class Mutations::CreateTrip < Mutations::BaseMutation
                 start_point: start_point,
                 end_point:   end_point,
                 travel_mode: travel_mode,
-                eta:         eta_data[:eta]
+                eta:         eta_data[:eta],
                 eta_string:  eta_data[:eta_string]
       )
   
