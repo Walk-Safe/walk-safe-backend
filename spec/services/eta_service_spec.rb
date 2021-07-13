@@ -9,8 +9,9 @@ RSpec.describe "ETA Service" do
 
       results = EtaService.get_eta(start_point, end_point, travel_mode)
 
-      expect(results).to be_an(Integer)
-      expect(results).to eq(794)
+      expect(results).to be_an(Hash)
+      expect(results[:eta]).to eq(13)
+      expect(results[:eta_string]).to eq("13 mins")
     end
   end
 end
