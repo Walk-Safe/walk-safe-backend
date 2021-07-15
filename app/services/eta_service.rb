@@ -13,7 +13,7 @@ class EtaService
         minutes = (seconds.to_f / 60).round(0)
         minutes_text = parse_json(response)[:rows][0][:elements][0][:duration][:text]
         return { eta: minutes, eta_string: minutes_text }
-      rescue NoMethodError => e
+      rescue NoMethodError
         { eta: nil, eta_string: nil }
       end
     end
