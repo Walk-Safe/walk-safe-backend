@@ -89,8 +89,8 @@ module Mutations
         it 'shows error if addresses are invalid', :vcr do
           post '/graphql', params: { query: invalid_address_query }
           json = JSON.parse(response.body)
-          expect(json['data']['createTrip']['trip']['eta']).to be_nil
-          expect(json['data']['createTrip']['trip']['eta_string']).to be_nil
+          expect(json['data']['createTrip']).to be_nil
+          expect(json['errors'][0]['message']).to eq("Cannot return null for non-nullable field Trip.eta")
         end
       end
       def query
