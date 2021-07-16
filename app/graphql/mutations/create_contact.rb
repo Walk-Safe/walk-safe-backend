@@ -15,7 +15,7 @@ class Mutations::CreateContact < Mutations::BaseMutation
         contact: contact,
         errors: []
       }
-    else
+    else 
       {
         contact: nil,
         errors: contact.errors.full_messages
