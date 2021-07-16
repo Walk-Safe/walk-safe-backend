@@ -1,17 +1,21 @@
 class EtaService
   class << self
     def get_eta(start_point, end_point, travel_mode)
-      response = conn.get('maps/api/distancematrix/json') do |f|
-        f.params['units']        = 'imperial'
-        f.params['origins']      = start_point
-        f.params['destinations'] = end_point
-        f.params['mode']         = travel_mode
+      begin
+        response = conn.get('maps/api/distancematrix/json') do |f|
+          f.params['units']        = 'imperial'
+          f.params['origins']      = start_point
+          f.params['destinations'] = end_point
+          f.params['mode']         = travel_mode
+        end
+
+        seconds = parse_json(response)[:rows][0][:elements][0][:duration][:value]
+        minutes = (seconds.to_f / 60).round(0)
+        minutes_text = parse_json(response)[:rows][0][:elements][0][:duration][:text]
+        return { eta: minutes, eta_string: minutes_text }
+      rescue NoMethodError
+        { eta: nil, eta_string: nil }
       end
-      
-      seconds = parse_json(response)[:rows][0][:elements][0][:duration][:value]
-      minutes = (seconds.to_f / 60).round(0)
-      minutes_text = parse_json(response)[:rows][0][:elements][0][:duration][:text]
-      return { eta: minutes, eta_string: minutes_text }
     end
 
     private

@@ -4,8 +4,8 @@ module Types
     field :start_point, String, null: true
     field :end_point, String, null: true
     field :travel_mode, String, null: true
-    field :eta, Integer, null: true
-    field :eta_string, String, null: true
+    field :eta, Integer, null: false
+    field :eta_string, String, null: false
     field :user_id, Integer, null: false
     field :user, Types::UserType, null: true
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
