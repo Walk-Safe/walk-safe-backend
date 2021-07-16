@@ -9,7 +9,7 @@ class Mutations::CreateContact < Mutations::BaseMutation
 
   def resolve(first_name:, last_name:, phone_number:, user_id:)
     contact = User.find(user_id).contacts.new(first_name: first_name, last_name: last_name, phone_number: phone_number)
-
+    
     if contact.save
       {
         contact: contact,

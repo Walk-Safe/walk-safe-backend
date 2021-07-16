@@ -11,6 +11,7 @@ class Mutations::CreateTrip < Mutations::BaseMutation
 
   def resolve(start_point:, end_point:, travel_mode:, user_id:)
     eta_data = EtaService.get_eta(start_point, end_point, travel_mode)
+    
     trip = User.find(user_id).trips.new(
                 start_point: start_point,
                 end_point:   end_point,
