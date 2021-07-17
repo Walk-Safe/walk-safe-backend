@@ -28,8 +28,6 @@ ActiveRecord::Schema.define(version: 2021_07_17_175408) do
   create_table "table_sms_messages", force: :cascade do |t|
     t.string "mobile_number"
     t.string "message"
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_table_sms_messages_on_user_id"
   end
 
   create_table "trips", force: :cascade do |t|
@@ -53,6 +51,5 @@ ActiveRecord::Schema.define(version: 2021_07_17_175408) do
   end
 
   add_foreign_key "contacts", "users"
-  add_foreign_key "table_sms_messages", "users"
   add_foreign_key "trips", "users"
 end
