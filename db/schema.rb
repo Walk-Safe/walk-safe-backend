@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_16_220754) do
+ActiveRecord::Schema.define(version: 2021_07_17_175408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,11 +25,11 @@ ActiveRecord::Schema.define(version: 2021_07_16_220754) do
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
-  create_table "sms_messages", force: :cascade do |t|
+  create_table "table_sms_messages", force: :cascade do |t|
     t.string "mobile_number"
     t.string "message"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_table_sms_messages_on_user_id"
   end
 
   create_table "trips", force: :cascade do |t|
@@ -53,5 +53,6 @@ ActiveRecord::Schema.define(version: 2021_07_16_220754) do
   end
 
   add_foreign_key "contacts", "users"
+  add_foreign_key "table_sms_messages", "users"
   add_foreign_key "trips", "users"
 end
