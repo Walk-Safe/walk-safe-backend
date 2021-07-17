@@ -3,6 +3,9 @@ rbenv:
 - 2.5.3
 addons:
   postgresql: 9.6
+cache:
+  bundler: true
+  yarn: true
 before_install:
   - gem install bundler
   - nvm install node
@@ -10,6 +13,10 @@ before_install:
 script:
 - bundle exec rails db:{create,migrate} RAILS_ENV=test
 - bundle exec rspec
+branches:
+  only:
+  - main
+
 # deploy:
 #   provider: heroku
 #   api_key: ENV["heroku_api_key"]
