@@ -2,15 +2,15 @@ require 'twilio-ruby'
 # require 'application.yml'
 
 class SmsMessagesController < ApplicationController
-    def create
-      twilio_response = Twilio::REST::Client.new(ENV['account_sid'], ENV['auth_token']) 
-      twilio_response.messages.create(
-        from: ENV['twilio_number'],
-        to:   params['mobile_number'],
-        body: params['message']
-      )
-  
-      render json: twilio_response
+  def create
+    twilio_response = Twilio::REST::Client.new(ENV['account_sid'], ENV['auth_token'])
+    twilio_response.messages.create(
+      from: ENV['twilio_number'],
+      to:   params['mobile_number'],
+      body: params['message']
+    )
+
+    render json: twilio_response
   end
 
   private

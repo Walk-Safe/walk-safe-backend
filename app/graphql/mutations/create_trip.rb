@@ -11,14 +11,14 @@ class Mutations::CreateTrip < Mutations::BaseMutation
 
   def resolve(start_point:, end_point:, travel_mode:, user_id:)
     eta_data = EtaService.get_eta(start_point, end_point, travel_mode)
-    
+
     trip = User.find(user_id).trips.new(
-                start_point: start_point,
-                end_point:   end_point,
-                travel_mode: travel_mode,
-                eta:         eta_data[:eta],
-                eta_string:  eta_data[:eta_string]
-      )
+      start_point: start_point,
+      end_point:   end_point,
+      travel_mode: travel_mode,
+      eta:         eta_data[:eta],
+      eta_string:  eta_data[:eta_string]
+    )
 
     if trip.save
       {
@@ -31,6 +31,5 @@ class Mutations::CreateTrip < Mutations::BaseMutation
         errors: trip.errors.full_messages
       }
     end
-
   end
 end
