@@ -3,7 +3,10 @@ require 'twilio-ruby'
 
 class SmsMessagesController < ApplicationController
   def create
-    twilio_response = Twilio::REST::Client.new(ENV['account_sid'], ENV['auth_token'])
+    # sms_message = Sms_Message.new(sms_message_params)
+    
+    twilio_response = Twilio::REST::Client.new(ENV['account_sid'], ENV['auth_token']) 
+    # require 'pry'; binding.pry
     twilio_response.messages.create(
       from: ENV['twilio_number'],
       to:   params['mobile_number'],
