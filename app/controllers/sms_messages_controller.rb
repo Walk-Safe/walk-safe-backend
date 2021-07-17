@@ -1,24 +1,26 @@
 require 'twilio-ruby'
-# require 'application.yml'
 
 class SmsMessagesController < ApplicationController
   def create
-    # sms_message = Sms_Message.new(sms_message_params)
-    
+    sms_message = MessageInfo.new(sms_message_params)
+    if sms_message.mobile_number.nil? || sms_message.message.nil?
+      render json: { errors: "Number and/or message blank" }, status: :bad_request
+    else
+      render json: SmsMessageSerializer.new(sms_message), status: :created
+    end 
+
     twilio_response = Twilio::REST::Client.new(ENV['account_sid'], ENV['auth_token']) 
-    # require 'pry'; binding.pry
     twilio_response.messages.create(
       from: ENV['twilio_number'],
       to:   params['mobile_number'],
       body: params['message']
     )
-
-    render json: twilio_response
+    # render json: twilio_response
   end
 
   private
 
   def sms_message_params
-      params.require(:sms_message).permit(:mobile_number, :message)
+      params.permit(:mobile_number, :message)
   end
 end
