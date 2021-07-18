@@ -12,7 +12,9 @@ module Types
     end
 
     def one_user(id:)
-      User.find(id)
+      Rails.cache.fetch("users/#{id}", expires_in: 12.hours) do
+        User.find(id)
+      end
     end
   end
 end

@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 2021_07_17_175408) do
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
+  create_table "sms_messages", force: :cascade do |t|
+    t.string "mobile_number"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "table_sms_messages", force: :cascade do |t|
     t.string "mobile_number"
     t.string "message"
