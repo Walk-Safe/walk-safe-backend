@@ -32,11 +32,6 @@ ActiveRecord::Schema.define(version: 2021_07_17_175408) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "table_sms_messages", force: :cascade do |t|
-    t.string "mobile_number"
-    t.string "message"
-  end
-
   create_table "trips", force: :cascade do |t|
     t.string "start_point"
     t.string "end_point"
