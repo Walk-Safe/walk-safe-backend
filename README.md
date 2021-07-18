@@ -1,5 +1,6 @@
 Hello
 <!-- PROJECT SHIELDS -->
+[![Build Status](https://travis-ci.com/Walk-Safe/walk-safe-backend.svg?branch=main)](https://travis-ci.com/Walk-Safe/walk-safe-backend)
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -42,7 +43,7 @@ Hello
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
-Welcome to Walk Safe! This repository contains our backend Rails app. This app makes calls to the X and exposes API endpoints to our [frontend Rails API](https://github.com/Walk-Safe/walk-safe-backend).
+Welcome to Walk Safe! This repository contains our backend Rails app. This app makes calls to Google's Distance Matrix API and exposes API endpoints to our [frontend Rails API](https://github.com/Walk-Safe/walk-safe-frontend).
 This project is deployed on [Heroku here](heroku-link-here)
 ### Built With
 * [Ruby on Rails](https://rubyonrails.org/)
@@ -70,7 +71,7 @@ See the [open issues](https://github.com/Walk-Safe/walk-safe-backend) for a list
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**. We hope that users provide input to improve their experience and that of others.
 ###### Versions
 - Ruby 2.5.3
-- Rails 5.2.4.3
+- Rails 5.2.6
 ###### Initial Setup
 1. Fork the Project
 2. Set up the rails database `rails db:{create,migrate}
@@ -87,7 +88,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 
 ## Contact
-Project Link: [https://github.com/Love-Rangers/couplistic](https://github.com/Love-Rangers/couplistic)
+Project Link: [https://github.com/orgs/Walk-Safe](https://github.com/orgs/Walk-Safe)
 See the [open issues](https://github.com/Walk-Safe/walk-safe-backend/issues) for a list of proposed features (and known issues).
 <!-- ACKNOWLEDGEMENTS -->
 
