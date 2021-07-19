@@ -7,8 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    # origins 'https://walk-safe-frontend.herokuapp.com/', 'localhost:3000'
-    origins '*'
+    origins 'https://walk-safe-frontend.herokuapp.com/', 'localhost:3000'
 
     resource '*',
       headers: :any,
