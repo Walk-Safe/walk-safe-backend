@@ -69,6 +69,119 @@ See the [open issues](https://github.com/Walk-Safe/walk-safe-backend) for a list
 
 ## Contributing
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**. We hope that users provide input to improve their experience and that of others.
+
+### Endpoint
+
+| /graphql |
+
+All endpoints use a `POST` method. 
+
+#### API Contract
+
+All endpoints rely on GraphQL to perform queries and mutations of data.  
+
+1. All queries must be sent in the request body as shown below.
+2. The create trip mutation relies on a third party API - [Google's Distance Matrix](https://developers.google.com/maps/documentation/distance-matrix/overview). 
+
+##### GraphQL Queries 
+###### Find all users 
+```
+{
+  allUsers {
+	firstName
+    lastName
+    username
+    contacts {
+      firstName
+      lastName
+      phoneNumber
+    }
+  }
+}
+```
+###### Find one user (requires user id)
+```
+{
+  oneUser(id: 1) {
+	firstName
+    lastName
+    username
+    contacts {
+      firstName
+      lastName
+      phoneNumber
+    }
+  }
+}
+```
+
+##### GraphQL Mutations
+###### Create new user (requires: first_name, last_name, username)
+```
+mutation {
+  createUser(input: { firstName: "Claire", lastName: "Littleton", username: "lemonade" }) {
+  user {
+    id,
+    firstName,
+    lastName,
+    username
+  	}
+  errors
+	}
+}
+```
+###### Create new contact (requires: first_name, last_name, phone_number, user_id)
+
+```
+mutation {
+  createContact(input: {
+	firstName: "Charlie",
+    lastName: "Pace",
+    phoneNumber: "+12625558333"
+    userId: 10
+  }) {
+  contact {
+    id
+    firstName
+    lastName
+    phoneNumber
+  	}
+  errors
+	}
+}
+```
+
+###### Create new trip (requires: start_point, end_point, travel_mode, user_id)
+###### Note: possible travel modes are walking, bicycling, or driving
+```
+mutation {
+  createTrip(input: {startPoint: "Boulder CO", endPoint: "Longmont CO", travelMode: "bicycling", userId: 10}) {
+    trip {
+      startPoint
+      endPoint
+      travelMode
+      eta
+      etaString
+      userId
+    }
+    errors
+  }
+}
+```
+
+##### RESTful route
+Text messages are sent utilizing a restful route:
+https://walk-safe-backend.herokuapp.com/sms_messages
+
+1. In the request, send the required information by form-data
+2. The required fields are __mobile_number__ (beginning with country code (US is '1') followed by the rest of the number -- without punctuation) and __message__
+
+##### New SMS to contact
+
+![New SMS to contact](lib/images/new_sms_screenshot.png)
+
+
+
 ###### Versions
 - Ruby 2.5.3
 - Rails 5.2.6
