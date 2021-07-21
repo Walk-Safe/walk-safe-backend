@@ -1,4 +1,4 @@
-![Title](lib/images/walksafe_title.jpg)
+![Title](lib/images/walk-safe-banner.png)
 <!-- PROJECT SHIELDS -->
 [![Build Status](https://travis-ci.com/Walk-Safe/walk-safe-backend.svg?branch=main)](https://travis-ci.com/Walk-Safe/walk-safe-backend)
 [![Forks][forks-shield]][forks-url]
@@ -8,7 +8,7 @@
 <!-- TABLE OF CONTENTS -->
 ## Table of contents
 [**About**](#about) |
-[**Link**](#about) |
+[**Links**](#links) |
 [**Created By**](#created-by) |
 [**Built With**](#built-with) |
 [**Setup**](#setup) |
@@ -22,10 +22,10 @@
 ## About
 Welcome to Walk Safe! This repository contains our backend Rails app. This app makes calls to Google's Distance Matrix API and exposes API endpoints to our [React Frontend](https://github.com/Walk-Safe/walk-safe-frontend).
 
-## Link
+## Links
 ### [Back End](https://github.com/Walk-Safe/walk-safe-backend) (endpoints only)
 
-###[Front End](https://github.com/Walk-Safe/walk-safe-frontend)
+### [Front End](https://github.com/Walk-Safe/walk-safe-frontend)
 
 <!-- DEVELOPERS -->
 ## Created By
@@ -64,12 +64,12 @@ Deployed with:
 
 
 ## Project Architecture
-![Project Architecture](lib/images/walk-safe_project_diagram.png)
+![Project Architecture](lib/images/walk-safe_project_diagram_final.png)
 
 
 ## Endpoints
 
-__| /graphql |__
+### ```/graphql```
 Endpoints use a __`POST`__ method, relying on GraphQL to perform queries and mutations of data.
 
 1. Queries must be sent in the __request body__ as shown below.
