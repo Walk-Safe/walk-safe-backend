@@ -15,7 +15,7 @@
 [**Endpoints**](#endpoints) |
 [**Tests**](#running-the-tests) |
 [**Roadmap**](#roadmap) |
-[**Acknowledgements**](#acknowledgements) 
+[**Acknowledgements**](#acknowledgements)
 
 
 <!-- ABOUT THE PROJECT -->
@@ -56,16 +56,53 @@ This project was tested with:
 * [pry] https://github.com/pry/pry
 * [VCR] https://github.com/vcr/vcr
 
-Continous Integration: 
-* [Travis CI](https://travis-ci.com/) 
+Continous Integration:
+* [Travis CI](https://travis-ci.com/)
 
 Deployed with:
-* [Heroku](www.heroku.com) 
-
+* [Heroku](www.heroku.com)
 
 ## Project Architecture
 ![Project Architecture](lib/images/walk-safe_project_diagram_final.png)
 
+## Setup
+* Clone the [walk-safe-backend](https://github.com/Walk-Safe/walk-safe-backend.git) repository from your terminal  
+```
+  git clone git@github.com:Walk-Safe/walk-safe-backend.git`
+```
+* Change directories to the cloned directory  
+```
+cd walk-safe-backend
+```
+* Install gems
+```  
+bundle install
+```
+* Set up the database
+```
+rails db:{create,migrate,seed}
+```
+* Obtain an API key from [Google Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/get-api-key#creating-api-keys). You will also need credentials from [Twilio](https://www.twilio.com/docs/usage/tutorials/how-to-use-your-free-trial-account) if you wish to use the SMS messaging portion of the application.
+* We use the [Figaro](https://github.com/laserlemon/figaro) gem to securely store secret keys.
+  * Run `bundle exec figaro install` from your terminal.
+  * This will create a `config/application.yml` file and also adds it to your `.gitignore` file so it won't get pushed to Github.   
+  * Now add your keys to `config/application.yml` as shown below
+  * Note that your Twilio keys must be in string format
+```
+google_api_key: <your Google Maps API key>
+account_sid: '<your Twilio SID>'
+auth_token: '<your Twilio auth token>'
+twilio_number: '<your Twilio phone number>'
+```  
+* Now you can start your server
+```
+rails s
+```
+* Visit http://localhost:3000/graphiql or use Postman to post queries and mutations as show below in the Endpoints section.
+* The test suit can be run with
+```
+bundle exec rspec
+```
 
 ## Endpoints
 
@@ -73,9 +110,9 @@ Deployed with:
 Endpoints use a __`POST`__ method, relying on GraphQL to perform queries and mutations of data.
 
 1. Queries must be sent in the __request body__ as shown below.
-2. The create trip mutation relies on a third party API - [Google's Distance Matrix](https://developers.google.com/maps/documentation/distance-matrix/overview). 
+2. The create trip mutation relies on a third party API - [Google's Distance Matrix](https://developers.google.com/maps/documentation/distance-matrix/overview).
 
-### GraphQL Queries 
+### GraphQL Queries
 __Find all users__
 ```
 {
