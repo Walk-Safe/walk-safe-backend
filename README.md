@@ -23,7 +23,7 @@
 Welcome to Walk Safe! Created to empower individuals to walk alone, Walk Safe brings a user's community along from the trip. Utilizing Geolocation and SMS messaging APIs, we keep a user's community informed of their trip status from start to finish. Should an unforeseen trip interruption arise, Walk Safe will immediately alert the user's contact. We've got your back.
 
 This repository contains our backend Rails app. This app makes calls to Google's Distance Matrix API and exposes API endpoints to our [frontend React API](https://github.com/Walk-Safe/walk-safe-frontend).
-This project is deployed on [Heroku here](heroku-link-here)
+This project is deployed on Heroku (https://walk-safe-backend.herokuapp.com/ , endpoints only).
 
 
 <!-- DEVELOPERS -->
