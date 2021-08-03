@@ -62,7 +62,7 @@ Deployed with:
 * [Heroku](www.heroku.com)
 
 ## Project Architecture
-![Project Architecture](lib/images/walk-safe_project_diagram_final.png)
+![Project Architecture](lib/images/walk-safe_project_diagram.png)
 
 ## Setup
 * Clone the [walk-safe-backend](https://github.com/Walk-Safe/walk-safe-backend.git) repository from your terminal  
