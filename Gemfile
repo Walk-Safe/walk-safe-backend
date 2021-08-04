@@ -26,6 +26,7 @@ gem 'puma', '~> 3.11'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'figaro'
 gem 'rubocop-rails'
+gem 'faker'
 gem 'faraday'
 gem 'json'
 gem 'fast_jsonapi'
@@ -47,7 +48,6 @@ group :development, :test do
   gem 'orderly'
   gem 'shoulda-matchers'
   gem 'graphiql-rails'
-  gem 'faker'
 end
 
 group :development do
