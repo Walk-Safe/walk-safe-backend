@@ -1,21 +1,3 @@
-2:19
-https://www.crimeometer.com/crime-data-api
-CrimeoMeterCrimeoMeter
-Crime Data API | CrimeoMeter
-The Most Accurate Crime Data API In The World. Get instant worldwide crime data around the areas you care about. (2 MB)
-https://www.crimeometer.com/crime-data-api
-
-
-Mike Foy:slack_call:  2:22 PM
-Refactor ideas :thread:
-
-3 replies
-Last reply today at 2:26 PMView thread
-
-Mike Foy:slack_call:  3:17 PM
-https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token
-
-Mike Foy:slack_call:  3:23 PM
 require 'twilio-ruby'
 
 class SmsMessagesController < ApplicationController
